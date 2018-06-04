@@ -16,3 +16,14 @@ Route::get('/', function () {
 });
 
 
+/* Route::get('/prueba', function(){
+    return view('Hola Mundo');
+});
+ */
+
+/*  Route::get('/prueba/{nombre}/{apellido?}', function($nombre, $apellido='Jaja'){
+    return view('prueba.uno', ['nombre' => $nombre, 'apellido' => $apellido]);
+});
+ */
+
+ Route::get('/prueba/{nombre}/{apellido?}', 'PruebaController@index');
