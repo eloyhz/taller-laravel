@@ -11,4 +11,8 @@ class PruebaController extends Controller
         return view('prueba.uno', ['nombre' => $nombre, 'apellido' => $apellido]);
 
     }
+
+    function index2()   {
+        return view('index');
+    }
 }

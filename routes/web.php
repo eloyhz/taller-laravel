@@ -27,3 +27,5 @@ Route::get('/', function () {
  */
 
  Route::get('/prueba/{nombre}/{apellido?}', 'PruebaController@index');
+
+ Route::get('/principal', 'PruebaController@index2');
