@@ -30,5 +30,8 @@ Route::get('/', function () {
 
  Route::get('/principal', 'PruebaController@index2');
 
-Route::get('/alumnos', 'AlumnoController@index');
+// Route::get('/alumnos', 'AlumnoController@index');
 
+// Route::get('/alta', 'AlumnoController@alta');
+
+Route::resource('/alumnos', 'AlumnoController');

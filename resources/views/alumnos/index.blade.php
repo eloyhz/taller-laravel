@@ -33,6 +33,9 @@
 		@endforeach
 	</tbody>
 </table>
+
+<a class="mb-5 btn btn-primary" href="{{route('alumnos.create')}}" role="button">Crear Alumno</a>
+
 @endsection
 
 
