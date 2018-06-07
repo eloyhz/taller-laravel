@@ -1,10 +1,28 @@
-            <nav class="navbar navbar-expand navbar-dark bg-dark">
+<?php
+$actual = \Route::current()->getName();
+?>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+
+                    <?php if ($actual === "Inicio") : ?>
+                        <li class="nav-item active">
+                    <?php else: ?>
+                        <li class="nav-item">
+                    <?php endif ?>
+                            <a class="nav-link" href="{{ route('Inicio') }}">Inicio<span class="sr-only">(current)</span></a>
                     </li>
+
+                    <?php if ($actual === "alumnos.index") : ?>
+                        <li class="nav-item active">
+                    <?php else: ?>
+                        <li class="nav-item">
+                    <?php endif ?>
+                        <a class="nav-link" href="{{ route('alumnos.index') }}">Alumnos</a>
+                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#">Profesores</a>
                     </li>
                 </ul>
             </nav>
