@@ -34,8 +34,17 @@
 	</tbody>
 </table>
 
-<a class="mb-5 btn btn-primary" href="{{route('alumnos.create')}}" role="button">Crear Alumno</a>
+{{-- <a class="mb-5 btn btn-primary" href="{{route('alumnos.create')}}" role="button">Crear Alumno</a> --}}
 
+      <!-- Button trigger modal -->
+	  {{-- <button type="button" class="mb-5 btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+			Crear Alumno
+	</button> --}}
+
+
+	<button class="mb-5 btn btn-primary"  onclick="cargaModal('{{route('alumnos.create')}}')">
+		Crear Alumno
+	</button>
 @endsection
 
 

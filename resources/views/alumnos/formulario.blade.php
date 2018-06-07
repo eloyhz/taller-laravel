@@ -1,8 +1,8 @@
-@extends('principal')
+{{-- @extends('principal')
 
 @section('titulo', 'Alta Alumnos')
 
-@section('contenido')
+@section('contenido') --}}
 
 {!! Form::open(['route' => 'alumnos.store', 'class' => 'text-left']) !!}
     <div class="row mt-5 form-group justify-content-center">
@@ -45,6 +45,7 @@
 
 {!! Form::close() !!}
 
+{{-- @endsection --}}
 
 
 {{-- 
@@ -97,4 +98,3 @@
 --}}
 
 
-@endsection
