@@ -43,7 +43,9 @@ class AlumnoController extends Controller
         $datos = $request->except('_token');
         // dd($datos);
         Alumno::create($datos);
-        return redirect()->route('alumnos.index');
+        // return redirect()->route('alumnos.index');
+        $alumnos = Alumno::all();
+        return view('alumnos.tabla', ['alumnos' => $alumnos]);   
     }
 
     /**

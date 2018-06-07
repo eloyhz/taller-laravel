@@ -39,9 +39,9 @@
         </div>
     </div>
 
-    <div class="row mb-5 form-group justify-content-center">
+    {{--  <div class="row mb-5 form-group justify-content-center">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary'])  !!}
-    </div>
+    </div>  --}}
 
 {!! Form::close() !!}
 

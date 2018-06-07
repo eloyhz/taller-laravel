@@ -26,10 +26,10 @@
         <div class="modal-body" id="modalCuerpo">
           ...
         </div>
-        {{-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> --}}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" onclick="guardaDatos()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+        </div>
       </div>
     </div>
   </div>
