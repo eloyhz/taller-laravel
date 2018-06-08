@@ -67,7 +67,11 @@ class AlumnoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $carreras = Carrera::all()->pluck('carrera', 'id');
+        return view('alumnos.formulario', ['carreras' => $carreras,
+                    'alumno' => $alumno
+        ]); 
     }
 
     /**
@@ -79,7 +83,12 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datos = $request->except('_token');
+        $alumno = Alumno::find($id);
+        $alumno->fill($datos);
+        $alumno->save();
+        $alumnos = Alumno::all();
+        return view('alumnos.tabla', ['alumnos' => $alumnos]);
     }
 
     /**

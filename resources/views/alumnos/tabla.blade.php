@@ -24,7 +24,9 @@
 {{--				<td>{{$a->id_carrera}}</td>  --}}
 				<td>{{$a->carrera()->carrera}}</td>
 				<td>
-					<button class="btn btn-success">
+					<button 
+						onclick="cargaModal('{{ route('alumnos.edit', [$a->id]) }}')"
+						class="btn btn-success">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</button>
 					<button class="btn btn-danger">

@@ -4,7 +4,15 @@
 
 @section('contenido') --}}
 
-{!! Form::open(['route' => 'alumnos.store', 'class' => 'text-left']) !!}
+@if(!isset($alumno))
+    {!! Form::open(['route' => 'alumnos.store', 'class' => 'text-left']) !!}
+@else
+    {!! Form::model($alumno, [ 'route' => ['alumnos.update', $alumno->id]] ) !!}
+    
+    {!! Form::hidden('_method', 'PUT') !!}
+    
+@endif
+
     <div class="row mt-5 form-group justify-content-center">
         <div class="col-md-2">
             {!! Form::label('nombre', 'Nombre: ') !!}
