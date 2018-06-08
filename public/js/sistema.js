@@ -1,3 +1,9 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 function cargaModal(url)    {
     $( "#modalCuerpo" ).load(url);
     $( "#modalAgregar" ).modal();
@@ -11,5 +17,14 @@ function guardaDatos()  {
     url = $('#modalCuerpo').find('form').attr('action');
     $.post(url, datos, function(resultado) {
         $('#tabla').html(resultado);
+    });
+}
+
+function borrar(url)
+{
+    datos = '_method=DELETE';
+
+    $.post(url, datos, function(resultado) {
+        $('#tabla').html(resultado)
     });
 }

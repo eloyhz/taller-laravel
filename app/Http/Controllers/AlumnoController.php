@@ -99,6 +99,10 @@ class AlumnoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->delete();
+
+        $alumnos = Alumno::all();
+        return view('alumnos.tabla', ['alumnos' => $alumnos]);
     }
 }
