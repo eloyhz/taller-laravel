@@ -13,11 +13,33 @@ class AlumnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-		$alumnos = Alumno::all();
-		// dd($alumnos);
-        return view('alumnos.index', ['alumnos' => $alumnos]);    
+        $carreras = Carrera::all()->pluck('carrera', 'id');
+        // dd($alumnos);
+        $carreras[0] = 'Todas';
+
+        if (isset($request->carrera))   {
+            $carreraSel = $request->carrera;
+        }
+        else    {
+            $carreraSel = 0;
+        }
+        if ($carreraSel == 0)   {
+            $alumnos = Alumno::alumnosCarrera();
+        }   
+        else    {
+            $alumnos = Alumno::alumnosCarrera($carreraSel);
+        }
+        if ($request->ajax())   {
+            return view('alumnos.tabla', ['alumnos' => $alumnos]);
+        }   else    {
+            return view('alumnos.index', 
+            ['alumnos' => $alumnos,
+                'carreras' => $carreras,
+                'carreraSel' => $carreraSel ]); 
+
+        }
     }
 
     /**

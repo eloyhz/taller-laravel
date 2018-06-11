@@ -22,7 +22,7 @@
 				<td>{{$a->nombreCompleto()}}</td>
 
 {{--				<td>{{$a->id_carrera}}</td>  --}}
-				<td>{{$a->carrera()->carrera}}</td>
+				<td>{{$a->carrera}}</td>
 				<td>
 					<button 
 						onclick="cargaModal('{{ route('alumnos.edit', [$a->id]) }}')"

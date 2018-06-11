@@ -4,6 +4,17 @@
 
 @section('contenido')
 
+<?php
+	$url = route('alumnos.index');
+	$funJS = "consultaDatos('". $url ."','carrera='+$('#id_carreraIndex').val())";
+?>
+	{!! Form::label('id_carreraIndex', 'Carrera: ') !!}
+	{!! Form::select('id_carreraIndex', 
+						$carreras, 	
+						$carreraSel, 
+						['onchange' => $funJS])  
+	!!}
+
 <div id="tabla">
 	@include('alumnos.tabla')
 </div>

@@ -4,6 +4,12 @@ $.ajaxSetup({
     }
 });
 
+function consultaDatos(url, datos) {
+    $.get(url, datos, function(resultado){
+        $('#tabla').html(resultado)
+    });
+}
+
 function cargaModal(url)    {
     $( "#modalCuerpo" ).load(url);
     $( "#modalAgregar" ).modal();
@@ -22,11 +28,16 @@ function guardaDatos()  {
 
 function borrar(url)
 {
-    $('#modalBorrar').modal();
+    // $('#modalBorrar').modal();
+    if (!confirm("¿Está seguro de querer borrar este registro?"))   {
+        return;
+    }
     
     datos = '_method=DELETE';
 
     $.post(url, datos, function(resultado) {
         $('#tabla').html(resultado)
+    }).fail(function(m){
+        console.log(m);
     });
 }
