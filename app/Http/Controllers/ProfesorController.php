@@ -37,8 +37,11 @@ class ProfesorController extends Controller
     {
         $datos = $request->except('_token');
         Profesor::create($datos);
-        $profesores = Profesor::all();
-        return view('profesores.tabla', ['profesores' => $profesores]);       
+        return redirect()->route('profesores.index');
+        // return view('profesores.index');
+
+        // $profesores = Profesor::all();
+        // return view('profesores.tabla', ['profesores' => $profesores]);       
     }
 
     /**
@@ -60,7 +63,9 @@ class ProfesorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $profesor = Profesor::find($id);
+        return view('profesores.formulario',
+                ['profesor' => $profesor]);
     }
 
     /**
@@ -72,7 +77,11 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datos = $request->except('_token');
+        $profesor = Profesor::find($id);
+        $profesor->fill($datos);
+        $profesor->save();
+        return redirect()->route('profesores.index');
     }
 
     /**
@@ -83,6 +92,10 @@ class ProfesorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $profesor = Profesor::find($id);
+        $profesor->delete();
+
+        $profesores = Profesor::all();
+        return view('profesores.tabla', ['profesores' => $profesores]);
     }
 }

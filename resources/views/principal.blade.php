@@ -18,11 +18,11 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+  <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalBorrarLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalAgregarLabel">Agregar Alumno</h5>
+          <h5 class="modal-title" id="modalBorrarLabel">Agregar Alumno</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,6 +38,26 @@
     </div>
   </div>
 
+  <!-- Modal Borrar -->
+  <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalBorrarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalBorrarLabel">Confirmar Borrar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modalCuerpoBorrar">
+          ¿Estás seguro que deseas borrar?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" data-dismiss="modal" class="btn btn-danger">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <div class="container text-center">
           <header class="bg-dark text-light rounded">

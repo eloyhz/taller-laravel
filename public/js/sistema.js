@@ -22,6 +22,8 @@ function guardaDatos()  {
 
 function borrar(url)
 {
+    $('#modalBorrar').modal();
+    
     datos = '_method=DELETE';
 
     $.post(url, datos, function(resultado) {

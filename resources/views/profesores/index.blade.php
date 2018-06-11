@@ -8,15 +8,15 @@
 	@include('profesores.tabla')
 </div>
 
-{{-- <a class="mb-5 btn btn-primary" href="{{route('alumnos.create')}}" role="button">Crear Alumno</a> --}}
+<a class="mb-5 btn btn-primary" href="{{route('profesores.create')}}" role="button">Agregar Profesor</a>
 	  {{-- <button type="button" class="mb-5 btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
 			Crear Alumno
-	</button> --}}
+	</button>   --}}
 
 
-	<button class="mb-5 btn btn-primary"  onclick="cargaModal('{{route('profesores.create')}}')">
+	{{--  <button class="mb-5 btn btn-primary"  onclick="cargaModal('{{route('profesores.create')}}')">
 		Registrar Profesor
-	</button>
+	</button>  --}}
 @endsection
 
 
