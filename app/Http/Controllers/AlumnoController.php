@@ -62,6 +62,10 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'apellido1' => 'required'
+        ]);
         $datos = $request->except('_token');
         // dd($datos);
         Alumno::create($datos);

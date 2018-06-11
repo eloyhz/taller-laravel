@@ -35,6 +35,11 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'nombre' => 'required',
+            'apellido1' => 'required',
+            'apellido2' => 'required'
+        ]);
         $datos = $request->except('_token');
         Profesor::create($datos);
         return redirect()->route('profesores.index');

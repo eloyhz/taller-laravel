@@ -37,7 +37,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" onclick="guardaDatos()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+          <button type="button" onclick="guardaDatos()" class="btn btn-primary">Guardar</button>
         </div>
       </div>
     </div>

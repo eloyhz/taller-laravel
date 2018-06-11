@@ -23,6 +23,13 @@ function guardaDatos()  {
     url = $('#modalCuerpo').find('form').attr('action');
     $.post(url, datos, function(resultado) {
         $('#tabla').html(resultado);
+        $('#modalAgregar').modal('toggle');
+    }).fail(function(result){
+        errores = result.responseJSON.errors;
+        $.each(errores, function(key, value){
+            // alert(key + ": " + value);
+            $('#' + key).addClass('is-invalid');
+        });
     });
 }
 
