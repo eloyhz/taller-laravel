@@ -34,9 +34,10 @@ Route::get('/', function () {
 
 // Route::get('/alta', 'AlumnoController@alta');
 
-Route::resource('/alumnos', 'AlumnoController');
+Route::resource('/alumnos', 'AlumnoController')->middleware('auth');
 
-Route::resource('/profesores', 'ProfesorController');
+Route::resource('/profesores', 'ProfesorController')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
