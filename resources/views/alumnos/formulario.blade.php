@@ -20,6 +20,7 @@
         <div class="col-md-6">
             {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre del alumno'])  !!}
         </div>
+        <div id="nombre_"></div>
     </div>
     <div class="row mt-5 form-group justify-content-center">
         <div class="col-md-2">
@@ -28,6 +29,7 @@
         <div class="col-md-6">
             {!! Form::text('apellido1', null, ['class' => 'form-control'])  !!}
         </div>
+        <div id="apellido1_"></div>
     </div>
     <div class="row mt-5 form-group justify-content-center">
         <div class="col-md-2">
@@ -36,6 +38,7 @@
         <div class="col-md-6">
             {!! Form::text('apellido2', null, ['class' => 'form-control'])  !!}
         </div>
+        <div id="apellido2_"></div>
     </div>
     <div class="row mt-5 form-group justify-content-center">
         <div class="col-md-2">

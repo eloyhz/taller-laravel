@@ -37,3 +37,6 @@ Route::get('/', function () {
 Route::resource('/alumnos', 'AlumnoController');
 
 Route::resource('/profesores', 'ProfesorController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

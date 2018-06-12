@@ -29,6 +29,8 @@ function guardaDatos()  {
         $.each(errores, function(key, value){
             // alert(key + ": " + value);
             $('#' + key).addClass('is-invalid');
+            $('#' + key + "_").text(value);
+            $('#' + key + "_").addClass('invalid-feedback');
         });
     });
 }
