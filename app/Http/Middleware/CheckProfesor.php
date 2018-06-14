@@ -15,7 +15,10 @@ class CheckProfesor
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::check() && \Auth::user()->esProfesor())   {
+        if (!$request->session()->has('esProfesor'))  {   // si no existe la sesion
+            $request->session()->put('esProfesor', \Auth::user()->esProfesor());  // entonces se asigna
+        }
+        if ($request->session()->get('esProfesor'))   {
             return $next($request);
         }
         return redirect('/error');
