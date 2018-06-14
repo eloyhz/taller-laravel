@@ -34,10 +34,14 @@ Route::get('/', function () {
 
 // Route::get('/alta', 'AlumnoController@alta');
 
-Route::resource('/alumnos', 'AlumnoController')->middleware('auth');
+Route::resource('/alumnos', 'AlumnoController')->middleware(['auth', 'EsAlumno']);
 
-Route::resource('/profesores', 'ProfesorController')->middleware('auth');
+Route::resource('/profesores', 'ProfesorController')->middleware(['auth', 'EsProfesor']);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/error', function(){
+    return view('error_permisos');
+});

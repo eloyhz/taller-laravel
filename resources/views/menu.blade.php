@@ -24,13 +24,19 @@ $actual = \Route::current()->getName();
                         <a class="nav-link" href="{{ route('alumnos.index') }}">Alumnos</a>
                     </li>
 
-                    <?php if ($actual === "profesores.index") : ?>
-                        <li class="nav-item active">
-                    <?php else: ?>
-                        <li class="nav-item">
-                    <?php endif ?>
-                        <a class="nav-link" href="{{ route('profesores.index') }}">Profesores</a>
-                    </li>
+                    @guest
+
+                    @else 
+                        @if(Auth::user()->esProfesor())
+                            <?php if ($actual === "profesores.index") : ?>
+                                <li class="nav-item active">
+                            <?php else: ?>
+                                <li class="nav-item">
+                            <?php endif ?>
+                                <a class="nav-link" href="{{ route('profesores.index') }}">Profesores</a>
+                            </li>
+                        @endif
+                    @endguest                    
                 @endguest
                     
                 </ul>

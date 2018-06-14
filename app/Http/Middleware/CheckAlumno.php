@@ -15,6 +15,9 @@ class CheckAlumno
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (\Auth::check()) {
+            return $next($request);
+        }
+        return redirect('/error');
     }
 }
