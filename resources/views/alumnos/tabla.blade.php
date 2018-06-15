@@ -6,6 +6,7 @@
 {{--			<th>Apellido 1</th>
 			<th>Apellido 2</th>   --}}
 			<th>Carrera</th>
+			<th>Foto</th>
 			<th>Opciones</th>
 		</tr>
 	</thead>
@@ -23,6 +24,11 @@
 
 {{--				<td>{{$a->id_carrera}}</td>  --}}
 				<td>{{$a->carrera}}</td>
+				<td>
+					@if ($a->foto != "")	
+						<img src="{{ route('alumno.foto', [$a->id]) }}" style="width: 50px;">
+					@endif	
+				</td>	
 				<td>
 					<button 
 						onclick="cargaModal('{{ route('alumnos.edit', [$a->id]) }}')"

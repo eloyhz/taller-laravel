@@ -45,3 +45,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/error', function(){
     return view('error_permisos');
 });
+
+Route::get('alumno/foto/{id}', 'AlumnoController@foto')->name('alumno.foto');

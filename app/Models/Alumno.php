@@ -17,9 +17,9 @@ class Alumno extends Model
 	}
 
 
-	public function carrera()	{
-		return $this->hasOne('App\Models\Carrera', 'id', 'id_carrera')->first();
-	}
+	// public function carrera()	{
+	// 	return $this->hasOne('App\Models\Carrera', 'id', 'id_carrera')->first();
+	// }
 
 	static public function alumnosCarrera($id_carrera = NULL)	{
 		$alumnos = Alumno::join('carreras', 'id_carrera', 'carreras.id')

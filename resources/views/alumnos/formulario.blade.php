@@ -5,9 +5,12 @@
 @section('contenido') --}}
 
 @if(!isset($alumno))
-    {!! Form::open(['route' => 'alumnos.store', 'class' => 'text-left']) !!}
+    {!! Form::open(['route' => 'alumnos.store', 'files' => true, 'class' => 'text-left']) !!}
 @else
-    {!! Form::model($alumno, [ 'route' => ['alumnos.update', $alumno->id]] ) !!}
+    {!! Form::model($alumno, 
+        [ 'route' => ['alumnos.update', $alumno->id],
+          'files' => true
+        ] ) !!}
     
     {!! Form::hidden('_method', 'PUT') !!}
     
@@ -49,7 +52,14 @@
             {!! Form::select('id_carrera', $carreras, null, ['class' => 'custom-select'])  !!}
         </div>
     </div>
-
+    <div class="row mt-5 form-group justify-content-center">
+        <div class="col-md-2">
+            {!! Form::label('foto', 'Foto: ') !!}
+        </div>
+        <div class="col-md-6">
+            {!! Form::file('foto') !!}
+        </div>
+    </div>
     {{--  <div class="row mb-5 form-group justify-content-center">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary'])  !!}
     </div>  --}}

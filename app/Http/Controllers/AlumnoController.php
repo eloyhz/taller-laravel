@@ -78,10 +78,20 @@ class AlumnoController extends Controller
 
         $datos = $request->except('_token');
         // dd($datos);
-        Alumno::create($datos);
+        $alumno = Alumno::create($datos);
+        if ($request->hasFile('foto'))  {
+            $nombreArchivo = $alumno->id . "." . $request->foto->extension();
+            $request->foto->storeAs('images', $nombreArchivo);
+            $alumno->foto = $nombreArchivo;
+            $alumno->save();
+        }
+
+
         // return redirect()->route('alumnos.index');
         $alumnos = Alumno::all();
-        return view('alumnos.tabla', ['alumnos' => $alumnos]);   
+    //        return view('alumnos.tabla', ['alumnos' => $alumnos]);   
+        return redirect(route('alumnos.index'));
+
     }
 
     /**
@@ -120,11 +130,20 @@ class AlumnoController extends Controller
     public function update(Request $request, $id)
     {
         $datos = $request->except('_token');
+        // dd($datos);
         $alumno = Alumno::find($id);
         $alumno->fill($datos);
+
+        if ($request->hasFile('foto'))  {
+            $nombreArchivo = $alumno->id . "." . $request->foto->extension();
+            $request->foto->storeAs('images', $nombreArchivo);
+            $alumno->foto = $nombreArchivo;
+        }
+
         $alumno->save();
         $alumnos = Alumno::all();
-        return view('alumnos.tabla', ['alumnos' => $alumnos]);
+//        return view('alumnos.tabla', ['alumnos' => $alumnos]);
+        return redirect(route('alumnos.index'));
     }
 
     /**
@@ -140,5 +159,14 @@ class AlumnoController extends Controller
 
         $alumnos = Alumno::all();
         return view('alumnos.tabla', ['alumnos' => $alumnos]);
+    }
+
+    public function foto(Request $request, $id)  {
+        $alumno = Alumno::find($id);
+
+        if ($alumno && $alumno->foto != "" && \Storage::exists('images/' . $alumno->foto))
+        {
+            return \Storage::download('images/' . $alumno->foto);
+        }
     }
 }
